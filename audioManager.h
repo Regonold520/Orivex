@@ -20,3 +20,5 @@ public:
     void draw();
     void changeSong(std::string id, std::string path, float songLength);
 };
+
+

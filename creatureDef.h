@@ -7,20 +7,20 @@
 
 class Game;
 
-class MonsterDef {
+class CreatureDef {
 public:
     Game* game = nullptr;
-    struct Monster {
+    struct Creature {
         std::string id;
         std::string trackPath;
         Music music;
         Image sprite;
         Texture2D tex;
     };
-    std::vector<Monster> monsters = {};
+    std::vector<Creature> creatures = {};
 
     void update(float dt);
     void ready(Game* nGame);
     void draw();
-    void addMonster(std::string id);
+    void addCreature(std::string id);
 };

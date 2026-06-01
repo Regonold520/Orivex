@@ -47,8 +47,7 @@ int main() {
 
     while (!WindowShouldClose())
     {
-        update(GetFrameTime());
-        
+        update(GetFrameTime());  
         draw();
     }
 

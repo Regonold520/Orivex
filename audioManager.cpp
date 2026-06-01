@@ -34,8 +34,8 @@ void AudioManager::changeSong(string id,string path, float songLength) {
 
     currentSong = newSong;
 
-    for (MonsterDef::Monster& mon : game->monsterDef.monsters) {
-        PlayMusicStream(mon.music);
-        updatingStreams.push_back(mon.music);
+    for (CreatureDef::Creature& creature : game->creatureDef.creatures) {
+        PlayMusicStream(creature.music);
+        updatingStreams.push_back(creature.music);
     }
 }
