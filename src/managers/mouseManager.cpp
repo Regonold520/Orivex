@@ -1,4 +1,4 @@
-#include "mouseManager.h"
+#include "managers/mouseManager.h"
 #include <iostream>
 #include "game.h"
 

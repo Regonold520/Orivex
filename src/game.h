@@ -1,9 +1,9 @@
 #pragma once
 
-#include "audioManager.h"
-#include "creatureDef.h"
-#include "tileManager.h"
-#include "mouseManager.h"
+#include "managers/audioManager.h"
+#include "managers/tileManager.h"
+#include "managers/mouseManager.h"
+#include "creatures/creatureDef.h"
 
 #include "raylib.h"
 

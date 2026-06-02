@@ -1,4 +1,4 @@
-#include "creatureDef.h"
+#include "creatures/creatureDef.h"
 #include <iostream>
 #include "game.h"
 
@@ -7,7 +7,6 @@
 using namespace std;
 
 void CreatureDef::update(float dt) {
-    
 }
 
 void CreatureDef::ready(Game* nGame) {

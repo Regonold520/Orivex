@@ -10,6 +10,7 @@ class Game;
 class CreatureDef {
 public:
     Game* game = nullptr;
+
     struct Creature {
         std::string id;
         std::string trackPath;
