@@ -17,6 +17,9 @@ public:
     };
 
     std::vector<Tile> tiles = {};
+    std::vector<Tile> selectedTiles = {};
+
+    Tile hoveringCheck[2] = {Tile{}, Tile{}};
 
 
     void update(float dt);
@@ -24,4 +27,7 @@ public:
     void draw();
     void createTile(Vector2 pos);
     void removeTile(Vector2 pos);
+    void computeSelection(Vector2 topTile, int scale);
+
+    Tile getTile(Vector2 pos);
 };

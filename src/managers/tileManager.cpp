@@ -21,8 +21,24 @@ void TileManager::ready(Game* nGame) {
 }
 
 void TileManager::update(float dt) {
-    
-}
+    if (selectedTiles.size() > 0) {
+        for (TileManager::Tile& tile : game->tileManager.tiles) {
+            bool match = false;
+            for (TileManager::Tile& checkT : game->tileManager.selectedTiles) {
+
+                if (tile.pos.x == checkT.pos.x && tile.pos.y == checkT.pos.y) {
+                    match = true;
+                }
+            }
+
+            if (match) {
+                tile.drawColour = RED;
+            } else {
+                tile.drawColour = BLUE;
+            }
+        }
+    }
+}   
 
 void drawTile(float x, float y, float width, float height, TileManager::Tile& tile) {
     Vector2 top = {x, y - height / 2};
@@ -34,11 +50,21 @@ void drawTile(float x, float y, float width, float height, TileManager::Tile& ti
         tile.points = {
             top, right, bottom, left
         };
-        cout << "Add me baby" << endl;
     }
     
     DrawTriangle(bottom, right, left, tile.drawColour);
     DrawTriangle(top, left, right, tile.drawColour);
+}
+
+void TileManager::computeSelection(Vector2 topTile, int scale) {
+    selectedTiles.clear();
+    for (int x=0;x<scale;x++) {
+        for (int y=0;y<scale;y++) {
+            Vector2 targetPos = {getTile(topTile).pos.x + x, getTile(topTile).pos.y + y};
+            
+            selectedTiles.push_back(getTile(targetPos));
+        }
+    }
 }
 
 int mult = 30;
@@ -77,4 +103,13 @@ void TileManager::removeTile(Vector2 pos) {
         }
         c++;
     }
+}
+
+TileManager::Tile TileManager::getTile(Vector2 pos) {
+    for (Tile& tile : tiles) {
+        if (tile.pos.x == pos.x && tile.pos.y == pos.y) {
+            return tile;
+        }
+    }
+    return Tile{{-999,1}};
 }

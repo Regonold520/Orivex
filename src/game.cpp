@@ -44,10 +44,11 @@ void Game::update(float dt) {
 void Game::draw() {
     BeginMode2D(camera);
 
-    creatureDef.draw();
+    
     audioManager.draw();
     tileManager.draw();
     mouseManager.draw();
+    creatureDef.draw();
 
     EndMode2D();
 }

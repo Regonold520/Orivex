@@ -1,0 +1,17 @@
+{
+    "name": "Plucklint",
+    "desc": "Im big-lint",
+
+    "cost": 100,
+    "sellPrice": 50,
+    "currency": "coins",
+
+    "elements": ["gleam"],
+    "rarity": "common",
+    "size": 2,
+
+    "generation": {
+        "amount": 10,
+        "resource": "coins"
+    }
+}

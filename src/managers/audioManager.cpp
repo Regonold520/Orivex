@@ -45,9 +45,7 @@ void AudioManager::update(float dt) {
         }
 
         else {
-            cout << "Sup" << endl;
             PlaySound(weakClick);
-
         } 
     }
 
@@ -58,13 +56,9 @@ void AudioManager::update(float dt) {
 
 void AudioManager::ready(Game* nGame) {
     game = nGame;
-    swamp = LoadMusicStream("assets/sounds/swamp.mp3");
     weakClick = LoadSound("assets/sounds/weakClick.mp3");
     strongClick = LoadSound("assets/sounds/strongClick.mp3");
 
-    PlayMusicStream(swamp);
-    updatingStreams.push_back(swamp);
-    
     changeSong("testSong", "hi", 100.0f);
 }
 
@@ -79,8 +73,8 @@ void AudioManager::changeSong(string id,string path, float songLength) {
 
     currentSong = newSong;
 
-    for (CreatureDef::Creature& creature : game->creatureDef.creatures) {
-        PlayMusicStream(creature.music);
-        updatingStreams.push_back(creature.music);
-    }
+    // for (CreatureDef::Creature& creature : game->creatureDef.creatures) {
+    //     PlayMusicStream(creature.music);
+    //     updatingStreams.push_back(creature.music);
+    // }
 }

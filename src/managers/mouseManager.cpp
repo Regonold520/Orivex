@@ -30,6 +30,8 @@ void MouseManager::update(float dt) {
     Vector2 mouseWorld = GetScreenToWorld2D(mouseScreen, game->camera);
 
     
+
+    
     Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), game->camera);
     float wheel = GetMouseWheelMove();
     if (wheel != 0)
@@ -48,11 +50,25 @@ void MouseManager::update(float dt) {
         if (tile.points.size() == 4){
             if (CheckTrianglePoint(mouseWorldPos, tile.points[0], tile.points[3], tile.points[1]) ||
                 CheckTrianglePoint(mouseWorldPos, tile.points[2], tile.points[1], tile.points[3])){
-                tile.drawColour = RED;
+                //tile.drawColour = RED;
+
+                game->tileManager.hoveringCheck[1] = tile;
+
+
             } else {
-                tile.drawColour = BLUE;
+                //tile.drawColour = BLUE;
             }
         }
+    }
+
+
+    if (
+        game->tileManager.hoveringCheck[0].pos.x != game->tileManager.hoveringCheck[1].pos.x ||
+        game->tileManager.hoveringCheck[0].pos.y != game->tileManager.hoveringCheck[1].pos.y
+        ){
+        game->tileManager.hoveringCheck[0] = game->tileManager.hoveringCheck[1];
+
+        game->tileManager.computeSelection(game->tileManager.hoveringCheck[0].pos, 4);
     }
 }
 

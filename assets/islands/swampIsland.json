@@ -1,0 +1,10 @@
+{
+    "creatures": {
+        "plucklint": {
+            "tracks": [
+                "plucklintSwamp_1.mp3",
+                "plucklintSwamp_2.mp3"
+            ]
+        }
+    }
+}
